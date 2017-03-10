@@ -1,4 +1,4 @@
-import { Directive, EventEmitter, Input, Output, HostListener } from '@angular/core';
+import { Directive, EventEmitter, HostListener, Input, Output } from '@angular/core';
 
 @Directive({selector: '[ngTableSorting]'})
 export class NgTableSortingDirective {
@@ -24,13 +24,10 @@ export class NgTableSortingDirective {
     if (this.ngTableSorting && this.column && this.column.sort !== false) {
       switch (this.column.sort) {
         case 'asc':
-          this.column.sort = 'desc';
-          break;
-        case 'desc':
-          this.column.sort = '';
+          this.column.sort = 'asc';
           break;
         default:
-          this.column.sort = 'asc';
+          this.column.sort = 'desc';
           break;
       }
 
