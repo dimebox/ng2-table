@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 var ng_table_component_1 = require('./table/ng-table.component');
 var ng_table_filtering_directive_1 = require('./table/ng-table-filtering.directive');
 var ng_table_paging_directive_1 = require('./table/ng-table-paging.directive');
