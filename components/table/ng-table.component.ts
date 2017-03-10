@@ -11,8 +11,8 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
           <th *ngFor="let column of columns" [ngTableSorting]="config" [column]="column" 
               (sortChanged)="onChangeTable($event)" ngClass="{{column.className || ''}}">
             {{column.title}}
-            <i class="material-icons" *ngIf="config && column.sort === 'asc">arrow_drop_up</i>
-            <i class="material-icons" *ngIf="config && column.sort === 'desc">arrow_drop_down</i>
+            <i class="material-icons" *ngIf="config && column.sort === 'asc'">arrow_drop_up</i>
+            <i class="material-icons" *ngIf="config && column.sort === 'desc'">arrow_drop_down</i>
           </th>
         </tr>
       </thead>

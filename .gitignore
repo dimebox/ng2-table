@@ -20,8 +20,6 @@ npm-debug.log
 /demo/**/*.js.map
 /demo/**/*.d.ts
 !/demo/custom-typings.d.ts
-/components/**/*.js
-/components/**/*.js.map
 /components/**/*.d.ts
 ng2-table.js
 ng2-table.js.map
