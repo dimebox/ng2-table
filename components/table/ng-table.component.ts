@@ -11,6 +11,10 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
           <th *ngFor="let column of columns" [ngTableSorting]="config" [column]="column" 
               (sortChanged)="onChangeTable($event)" ngClass="{{column.className || ''}}">
             {{column.title}}
+            <small *ngIf="config && column.sort !== 'asc' && column.sort !== 'desc'">
+              <i class="material-icons">arrow_drop_up</i>
+              <i class="material-icons">arrow_drop_down</i>
+            </small>
             <i class="material-icons" *ngIf="config && column.sort === 'asc'">arrow_drop_up</i>
             <i class="material-icons" *ngIf="config && column.sort === 'desc'">arrow_drop_down</i>
           </th>
@@ -27,7 +31,7 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
         </td>
       </tr>
         <tr *ngFor="let row of rows">
-          <td (click)="cellClick(row, column.name)" *ngFor="let column of columns" [innerHtml]="sanitize(getData(row, column.name))"></td>
+          <td (click)="cellClick(row, column.name, $event)" *ngFor="let column of columns" [innerHtml]="sanitize(getData(row, column.name))"></td>
         </tr>
       </tbody>
     </table>
@@ -116,7 +120,7 @@ export class NgTableComponent {
     return propertyName.split('.').reduce((prev:any, curr:string) => prev[curr], row);
   }
 
-  public cellClick(row:any, column:any):void {
-    this.cellClicked.emit({row, column});
+  public cellClick(row:any, column:any, event:any):void {
+    this.cellClicked.emit({row, column, event});
   }
 }

@@ -15,5 +15,5 @@ export declare class NgTableComponent {
     readonly configColumns: any;
     onChangeTable(column: any): void;
     getData(row: any, propertyName: string): string;
-    cellClick(row: any, column: any): void;
+    cellClick(row: any, column: any, event: any): void;
 }
